@@ -10,7 +10,3 @@ variable "sleepy_time" {
   default     = 0
 }
 
-variable "time_to_sleep" {
-  description = "To sleep or not."
-  default     = "false"
-}
