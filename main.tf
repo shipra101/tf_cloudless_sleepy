@@ -1,18 +1,11 @@
-# Create an arbitrary local resource
-data "template_file" "test" {
-  template = "Hello, I am a template. My sample_var value = $${sample_var}"
-
-  vars {
-    sample_var = "${var.sample_var}"
-  }
+terraform {
+  required_version = "> 0.8.0"
 }
 
-resource "null_resource" "sleep" {
-  triggers {
-    uuid = "${uuid()}"
-  }
+resource "null_resource" "health_check" {
 
   provisioner "local-exec" {
-    command = "sleep ${var.sleepy_time}"
+
+    command = "/bin/bash test.sh"
   }
 }
